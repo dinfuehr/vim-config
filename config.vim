@@ -160,6 +160,10 @@ hi MBEVisibleNormal guifg=#A6DB29 guibg=fg ctermbg=235 ctermfg=154
 hi MBEChanged guifg=#CD5907 
 hi MBENormal guifg=#808080 ctermfg=240
 
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+
 " Command-T anpassen
 let g:CommandTMaxFiles=40000
 
