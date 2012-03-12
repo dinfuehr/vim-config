@@ -77,6 +77,9 @@ nmap <leader>cn :set number!<CR>
 " Ins DmDoc-Verzeichnis springen
 nmap <leader>dd :cd /home/dominik/dmdoc/DmDoc<CR>
 
+" Ins Uni-Projekt springen
+nmap <leader>du :cd /home/dominik/projekte/casmi<CR>
+
 " Ins repo-Verzeichnis springen
 nmap <leader>dr :cd /home/dominik/repo<CR>
 
@@ -168,7 +171,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 let g:CommandTMaxFiles=40000
 
 " Binärdateien brauchen nicht geladen werden
-set wildignore+=*.xlsx,*.ico,*.png,*.jpg,*.gif,*.jpeg,*.xcf,*.xls,*.orig,*.swp,*.bak,*.pyc,*.class
+set wildignore+=*.xlsx,*.ico,*.png,*.jpg,*.gif,*.jpeg,*.xcf,*.xls,*.orig,*.swp,*.bak,*.pyc,*.class,*.obj,*.o
 set wildignore+=/home/dominik/dmdoc/DmDoc/packages/**
 set wildignore+=/home/dominik/dmdoc/DmDoc/ext-*/**
 
