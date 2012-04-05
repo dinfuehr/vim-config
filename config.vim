@@ -83,6 +83,9 @@ nmap <leader>du :cd /home/dominik/projekte/casmi<CR>
 " Ins repo-Verzeichnis springen
 nmap <leader>dr :cd /home/dominik/repo<CR>
 
+" Ins gaia-Verzeichnis springen
+nmap <leader>dg :cd /home/dominik/projekte/gaia<CR>
+
 " NerdTree aufmachen
 nmap <leader>n :NERDTree<CR>
 
