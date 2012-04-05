@@ -170,6 +170,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 " Command-T anpassen
 let g:CommandTMaxFiles=40000
 
+" Dürfte MBE beschleunigen
+let g:miniBufExplCheckDupeBufs = 0
+
 " Binärdateien brauchen nicht geladen werden
 set wildignore+=*.xlsx,*.ico,*.png,*.jpg,*.gif,*.jpeg,*.xcf,*.xls,*.orig,*.swp,*.bak,*.pyc,*.class,*.obj,*.o
 set wildignore+=/home/dominik/dmdoc/DmDoc/packages/**
@@ -226,3 +229,7 @@ nnoremap k gk
 
 " mit jj auch in normal mode zurück
 " inoremap jj <ESC>
+
+" Mit F9 kann man nun Ruby-Files Syntaxüberprüfen lassen
+autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
+
