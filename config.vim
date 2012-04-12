@@ -6,6 +6,10 @@ set number
 " Backspace-Taste normal verwenden können
 set backspace=2
 
+" Ctrl+C/V/X sollten nun funktionieren
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
 " Tabulator-Einstellungen
 set tabstop=2
 set shiftwidth=2
