@@ -181,7 +181,8 @@ let g:CommandTMaxFiles=40000
 let g:miniBufExplCheckDupeBufs = 0
 
 " Binärdateien brauchen nicht geladen werden
-set wildignore+=*.xlsx,*.ico,*.png,*.jpg,*.gif,*.jpeg,*.xcf,*.xls,*.orig,*.swp,*.bak,*.pyc,*.class,*.obj,*.o,*.un~
+set wildignore+=*.xlsx,*.ico,*.png,*.jpg,*.gif,*.jpeg,*.xcf,*.xls,*.orig,*.swp,*.bak,*.pyc,
+set wildignore+=*.class,*.obj,*.o,*.un~,*~
 set wildignore+=/home/dominik/dmdoc/DmDoc/packages/**
 set wildignore+=/home/dominik/dmdoc/DmDoc/public/ext-3.2.0/**
 set wildignore+=/home/dominik/dmdoc/DmDoc/public/ext-3.4.0/**
@@ -192,6 +193,7 @@ set wildignore+=/home/dominik/dmdoc/DmDoc/public/codemirror-2.0.1/**
 set wildignore+=/home/dominik/dmdoc/DmDoc/public/codemirror-2.11/**
 set wildignore+=/home/dominik/dmdoc/DmDoc/public/javascripts/jquery/**
 set wildignore+=/home/dominik/dmdoc/DmDoc/public/javascripts/jquery.preferences/**
+set wildignore+=/home/dominik/projekte/casmi/src/casmi
 
 " Buffer wechseln auch wenn Datei bearbeitet wurde
 set hidden
