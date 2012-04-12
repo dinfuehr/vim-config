@@ -67,7 +67,7 @@ map <C-H> <C-W>h<C-W>_
 nmap <leader>cl :set list!<CR>
 
 " Kann nun mit ,dc das vimrc-File gleich laden
-nmap <leader>dc :edit $MYVIMRC<CR>
+nmap <leader>dc :edit ~/.vim/config.vim<CR>
 
 " reload vimrc-File
 nmap <leader>dl :source $MYVIMRC<CR>
