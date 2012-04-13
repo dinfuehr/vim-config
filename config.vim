@@ -6,10 +6,6 @@ set number
 " Backspace-Taste normal verwenden können
 set backspace=2
 
-" Ctrl+C/V/X sollten nun funktionieren
-source $VIMRUNTIME/mswin.vim
-behave mswin
-
 " Tabulator-Einstellungen
 set tabstop=2
 set shiftwidth=2
@@ -250,3 +246,28 @@ nnoremap k gk
 " Mit F9 kann man nun Ruby-Files Syntaxüberprüfen lassen
 autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
 
+" Preferences from mswin.vim
+" Ctrl+C/V/X sollten nun funktionieren
+" source $VIMRUNTIME/mswin.vim
+" behave mswin
+
+" CTRL-X is Cut
+vnoremap <C-X> "+x
+
+" CTRL-C is Copy
+vnoremap <C-C> "+y
+
+" CTRL-V is Paste
+map <C-V> "+gP
+cmap <C-V> <C-R>+
+
+" Pasting blockwise and linewise selections is not possible in Insert and
+" Visual mode without the +virtualedit feature.  They are pasted as if they
+" were characterwise instead.
+" Uses the paste.vim autoload script.
+
+exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
+exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
+
+" Use CTRL-Q to do what CTRL-V used to do
+noremap <C-Q> <C-V>
