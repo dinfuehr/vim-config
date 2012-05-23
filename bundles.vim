@@ -2,33 +2,90 @@
 " required! 
 Bundle 'gmarik/vundle'
 
-" My Bundles here:
-"
-" original repos on github
-Bundle 'Lokaltog/vim-easymotion.git'
-Bundle 'Raimondi/delimitMate.git'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'godlygeek/tabular.git'
-Bundle 'tpope/vim-surround.git'
+" Navigation
+Bundle 'ZoomWin'
+Bundle 'wincent/Command-T'
+" This fork is required due to remapping ; to :
+"Bundle 'christoomey/vim-space'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'mutewinter/LustyJuggler'
+Bundle 'kien/ctrlp.vim'
 Bundle 'fholgado/minibufexpl.vim.git'
-Bundle 'tpope/vim-unimpaired.git'
+
+" Visual
+Bundle 'sjl/badwolf'
 Bundle 'altercation/vim-colors-solarized'
-" Bundle 'Lokaltog/vim-powerline.git'
-Bundle 'mutewinter/vim-indent-guides.git'
-Bundle 'scrooloose/nerdcommenter.git'
-Bundle 'msanders/snipmate.vim.git'
-" Bundle 'vim-scripts/showmarks--Politz.git'
-Bundle 'vim-scripts/YankRing.vim.git'
-Bundle 'mileszs/ack.vim.git'
+Bundle 'tomasr/molokai'
+Bundle 'nanotech/jellybeans.vim'
 
-" vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
+" UI Additions
+Bundle 'mutewinter/vim-indent-guides'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Rykka/colorv.vim'
+"Bundle 'tomtom/quickfixsigns_vim'
 
-" non github repos
-Bundle 'git://git.wincent.com/command-t.git'
+" Commands
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-speeddating'
+Bundle 'tpope/vim-fugitive'
+Bundle 'godlygeek/tabular'
+Bundle 'mileszs/ack.vim'
+Bundle 'gmarik/sudo-gui.vim'
+Bundle 'milkypostman/vim-togglelist'
+"Bundle 'mutewinter/swap-parameters'
 
-" ...
+" Automatic Helpers
+Bundle 'IndexedSearch'
+Bundle 'xolox/vim-session'
+Bundle 'Raimondi/delimitMate'
+Bundle 'scrooloose/syntastic'
+Bundle 'ervandew/supertab'
+Bundle 'gregsexton/MatchTag'
+Bundle 'Shougo/neocomplcache'
+
+" ---- Language Additions -----
+
+" Ruby
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-endwise'
+
+" JavaScript
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'leshill/vim-json'
+Bundle 'itspriddle/vim-jquery'
+
+" Other Languages
+Bundle 'msanders/cocoa.vim'
+Bundle 'mutewinter/taskpaper.vim'
+Bundle 'mutewinter/nginx.vim'
+Bundle 'timcharper/textile.vim'
+Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Bundle 'acustodioo/vim-tmux'
+Bundle 'hallison/vim-markdown'
+Bundle 'xhtml.vim--Grny'
+Bundle 'groenewege/vim-less'
+
+" MatchIt
+Bundle 'matchit.zip'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+
+" Libraries
+Bundle 'L9'
+Bundle 'tpope/vim-repeat'
+Bundle 'tomtom/tlib_vim'
+Bundle 'mathml.vim'
+
+" SnipMate
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "snipmate-snippets"
+Bundle "garbas/vim-snipmate"
 
 filetype plugin indent on " required! 
 

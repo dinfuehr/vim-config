@@ -16,6 +16,7 @@ set encoding=utf-8 " UTF-8 verwenden
 set fileencodings=utf-8
 
 set autoindent " Automatisch einrücken
+set laststatus=2 " Statusbar immer anzeigen
 
 if has("gui_running")
   set cursorline " Aktuelle Zeile hervorheben
@@ -23,8 +24,8 @@ endif
 
 set ruler " Aktuelle Zeile und Spalte des Cursors rechts unten anzeigen
 set ttyfast " Schnelleres Terminaldarstellung
-"set guifont=DejaVu\ Sans\ Mono\ 11
-set guifont=Monaco\ 11
+set guifont=DejaVu\ Sans\ Mono\ 11
+"set guifont=Monaco\ 11
 set history=1000 " Mehr Commands zwischenspeichern
 set scrolloff=3 " Anzahl Zeilen die nach oben/unten immer angezeigt werden
 " Wenn Cursor Screen verlässt, würde dies springen veranlassen
@@ -64,6 +65,12 @@ nmap <leader>cl :set list!<CR>
 
 " Kann nun mit ,dc das vimrc-File gleich laden
 nmap <leader>dc :edit ~/.vim/config.vim<CR>
+
+" Mit ,db Bundles-File laden
+nmap <leader>db :edit ~/.vim/bundles.vim<CR>
+
+" Mit ,dv das 'echte' .vimrc-File laden
+nmap <leader>dv :edit $MYVIMRC<CR>
 
 " reload vimrc-File
 nmap <leader>dl :source $MYVIMRC<CR>
@@ -118,10 +125,17 @@ nmap <leader>bd :bw<CR>
 " bitte nicht beepen
 set visualbell
 set noerrorbells
+set t_vb=
 
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv 
+
+set mousehide  " Hide mouse after chars typed
+set mouse=a  " Mouse in all modes
+
+" Better complete options to speed it up
+set complete=.,w,b,u,U
 
 " 
 "noremap <tab> :bn<CR>
@@ -230,6 +244,7 @@ set smartcase " intelligente Case-Erkennung
 " gleich beim Eingeben Highlighten
 set incsearch
 set showmatch
+set matchtime=2 " How many tenths of a second to blink
 set hlsearch
 
 " Highlighting entfernen
@@ -271,3 +286,146 @@ exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
 
 " Use CTRL-Q to do what CTRL-V used to do
 noremap <C-Q> <C-V>
+
+" ----------------------------------------
+" Plugin Configuration
+" ----------------------------------------
+
+" ---------------
+" Indent Guides
+" ---------------
+let g:indent_guides_enable_on_vim_startup=1
+
+
+" ---------------
+" SuperTab
+" ---------------
+" Set these up for cross-buffer completion (something Neocachecompl has a hard
+" time with)
+let g:SuperTabDefaultCompletionType="<c-x><c-n>"
+let g:SuperTabContextDefaultCompletionType="<c-x><c-n>"
+
+" ---------------
+" Neocachecompl
+" ---------------
+let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_enable_auto_select=1 "Select the first entry automatically
+let g:neocomplcache_enable_cursor_hold_i=1
+let g:neocomplcache_cursor_hold_i_time=300
+let g:neocomplcache_auto_completion_start_length=1
+
+" Tab / Shift-Tab to cycle completions
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" Required to make neocomplcache_cursor_hold_i_time work
+" See https://github.com/Shougo/neocomplcache/issues/140
+let s:update_time_save = &updatetime
+autocmd InsertEnter * call s:on_insert_enter()
+
+function! s:on_insert_enter()
+  if &updatetime > g:neocomplcache_cursor_hold_i_time
+    let s:update_time_save = &updatetime
+    let &updatetime = g:neocomplcache_cursor_hold_i_time
+  endif
+endfunction
+
+autocmd InsertLeave * call s:on_insert_leave()
+
+function! s:on_insert_leave()
+  if &updatetime < s:update_time_save
+    let &updatetime = s:update_time_save
+  endif
+endfunction
+
+" ---------------
+" Lusty Juggler
+" ---------------
+if has('unix')
+  " Allows for previous buffer on unix systems without most recent patch level
+  " that enable LustyJuggler to work
+  nnoremap <leader>, :e#<CR>
+else
+  nnoremap <leader>, :LustyJugglePrevious<CR>
+end
+let g:LustyJugglerShowKeys=1 " Show numbers for Lusty Buffers
+let g:LustyJugglerSuppressRubyWarning=1
+
+" ---------------
+" Syntastic
+" ---------------
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+
+" ---------------
+" NERDTree
+" ---------------
+nnoremap <leader>nn :NERDTreeToggle<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2 " Change the NERDTree directory to the root node
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" ---------------
+" Session
+" ---------------
+let g:session_autosave=0
+let g:session_autoload=0
+nnoremap <leader>os :OpenSession<CR>
+
+" ---------------
+" SpeedDating
+" ---------------
+let g:speeddating_no_mappings=1 " Remove default mappings (C-a etc.)
+nmap <silent><leader>dm <Plug>SpeedDatingDown
+nmap <silent><leader>dp <Plug>SpeedDatingUp
+nmap <silent><leader>dn <Plug>SpeedDatingNowUTC
+
+" ---------------
+" Tabular
+" ---------------
+nmap <Leader>t= :Tabularize /=<CR>
+vmap <Leader>t= :Tabularize /=<CR>
+nmap <Leader>t: :Tabularize /:\zs<CR>
+vmap <Leader>t: :Tabularize /:\zs<CR>
+nmap <Leader>t, :Tabularize /,\zs<CR>
+vmap <Leader>t, :Tabularize /,\zs<CR>
+nmap <Leader>t> :Tabularize /=>\zs<CR>
+vmap <Leader>t> :Tabularize /=>\zs<CR>
+nmap <Leader>t- :Tabularize /-<CR>
+vmap <Leader>t- :Tabularize /-<CR>
+nmap <Leader>t" :Tabularize /"<CR>
+vmap <Leader>t" :Tabularize /"<CR>
+
+" ---------------
+" Fugitive
+" ---------------
+nmap <Leader>gc :Gcommit<CR>
+nmap <Leader>gw :Gwrite<CR>
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gp :Git push<CR>
+ " Mnemonic, gu = Git Update
+nmap <Leader>gu :Git pull<CR>
+nmap <Leader>gd :Gdiff<CR>
+" Exit a diff by closing the diff window
+nmap <Leader>gx :wincmd h<CR>:q<CR>
+
+" ---------------
+" Zoomwin
+" ---------------
+" Zoom Window to Full Size
+nmap <silent> <leader>wo :ZoomWin<CR>
+
+" ---------------
+" Ack.vim
+" ---------------
+nmap <silent> <leader>as :AckFromSearch<CR>
+
+" ---------------
+" Vundle
+" ---------------
+nmap <Leader>bi :BundleInstall<CR>
+nmap <Leader>bu :BundleInstall!<CR> " Because this also updates
+nmap <Leader>bc :BundleClean<CR>
+
+
