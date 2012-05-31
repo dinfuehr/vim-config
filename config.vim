@@ -149,7 +149,9 @@ set listchars=tab:▸\ ,eol:¬
 "Invisible character colors
 
 " Initiale Fenstergröße setzen
-set lines=40 columns=120
+if has( "gui_running" )
+  set lines=40 columns=120
+endif
 
 " Verwende 256 Farben
 set t_Co=256
