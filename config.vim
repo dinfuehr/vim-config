@@ -205,7 +205,8 @@ set wildignore+=/home/dominik/dmdoc/DmDoc/public/codemirror-2.0.1/**
 set wildignore+=/home/dominik/dmdoc/DmDoc/public/codemirror-2.11/**
 set wildignore+=/home/dominik/dmdoc/DmDoc/public/javascripts/jquery/**
 set wildignore+=/home/dominik/dmdoc/DmDoc/public/javascripts/jquery.preferences/**
-set wildignore+=/home/dominik/projekte/casmi/src/casmi
+set wildignore+=/home/dominik/projekte/casmi/casmi
+set wildignore+=/home/dominik/projekte/casmi/build/**
 
 " Buffer wechseln auch wenn Datei bearbeitet wurde
 set hidden
