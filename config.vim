@@ -295,81 +295,6 @@ noremap <C-Q> <C-V>
 " ----------------------------------------
 
 " ---------------
-" Indent Guides
-" ---------------
-let g:indent_guides_enable_on_vim_startup=1
-
-
-" ---------------
-" SuperTab
-" ---------------
-" Set these up for cross-buffer completion (something Neocachecompl has a hard
-" time with)
-let g:SuperTabDefaultCompletionType="<c-x><c-n>"
-let g:SuperTabContextDefaultCompletionType="<c-x><c-n>"
-
-" ---------------
-" Neocachecompl
-" ---------------
-let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_enable_auto_select=1 "Select the first entry automatically
-let g:neocomplcache_enable_cursor_hold_i=1
-let g:neocomplcache_cursor_hold_i_time=300
-let g:neocomplcache_auto_completion_start_length=1
-
-" Tab / Shift-Tab to cycle completions
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-" Required to make neocomplcache_cursor_hold_i_time work
-" See https://github.com/Shougo/neocomplcache/issues/140
-let s:update_time_save = &updatetime
-autocmd InsertEnter * call s:on_insert_enter()
-
-function! s:on_insert_enter()
-  if &updatetime > g:neocomplcache_cursor_hold_i_time
-    let s:update_time_save = &updatetime
-    let &updatetime = g:neocomplcache_cursor_hold_i_time
-  endif
-endfunction
-
-autocmd InsertLeave * call s:on_insert_leave()
-
-function! s:on_insert_leave()
-  if &updatetime < s:update_time_save
-    let &updatetime = s:update_time_save
-  endif
-endfunction
-
-" ---------------
-" Lusty Juggler
-" ---------------
-if has('unix')
-  " Allows for previous buffer on unix systems without most recent patch level
-  " that enable LustyJuggler to work
-  nnoremap <leader>, :e#<CR>
-else
-  nnoremap <leader>, :LustyJugglePrevious<CR>
-end
-let g:LustyJugglerShowKeys=1 " Show numbers for Lusty Buffers
-let g:LustyJugglerSuppressRubyWarning=1
-
-" ---------------
-" Syntastic
-" ---------------
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-
-" ---------------
-" NERDTree
-" ---------------
-nnoremap <leader>nn :NERDTreeToggle<CR>
-nnoremap <leader>nf :NERDTreeFind<CR>
-let NERDTreeShowBookmarks=1
-let NERDTreeChDirMode=2 " Change the NERDTree directory to the root node
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" ---------------
 " Session
 " ---------------
 let g:session_autosave=0
@@ -414,12 +339,6 @@ nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gx :wincmd h<CR>:q<CR>
 
 " ---------------
-" Zoomwin
-" ---------------
-" Zoom Window to Full Size
-nmap <silent> <leader>wo :ZoomWin<CR>
-
-" ---------------
 " Ack.vim
 " ---------------
 nmap <silent> <leader>as :AckFromSearch<CR>
@@ -431,4 +350,8 @@ nmap <Leader>bi :BundleInstall<CR>
 nmap <Leader>bu :BundleInstall!<CR> " Because this also updates
 nmap <Leader>bc :BundleClean<CR>
 
-
+" ---------------
+" Ctrl-P
+" ---------------
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_working_path_mode = 2
