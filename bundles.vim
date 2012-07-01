@@ -107,13 +107,16 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 " Libraries
 " Bundle 'L9'
 Bundle 'tpope/vim-repeat'
-" Bundle 'tomtom/tlib_vim'
+Bundle 'tomtom/tlib_vim'
 " Bundle 'mathml.vim'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "snipmate-snippets"
 Bundle "garbas/vim-snipmate"
+
+" casm syntax highlighting
+Bundle "dinfuehr/vim-syntax-casm"
 
 filetype plugin indent on " required! 
 
