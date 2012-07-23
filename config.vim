@@ -82,16 +82,16 @@ map <leader>cd :cd %:p:h<cr>
 nmap <leader>cn :set number!<CR>
 
 " Ins DmDoc-Verzeichnis springen
-nmap <leader>dd :cd /home/dominik/dmdoc/DmDoc<CR>
+nmap <leader>dd :cd $HOME/dmdoc/DmDoc<CR>
 
 " Ins Uni-Projekt springen
-nmap <leader>du :cd /home/dominik/projekte/casmi<CR>
+nmap <leader>du :cd $HOME/projekte/casmi<CR>
 
 " Ins repo-Verzeichnis springen
-nmap <leader>dr :cd /home/dominik/repo<CR>
+nmap <leader>dr :cd $HOME/repo<CR>
 
 " Ins gaia-Verzeichnis springen
-nmap <leader>dg :cd /home/dominik/projekte/gaia<CR>
+nmap <leader>dg :cd $HOME/projekte/gaia<CR>
 
 " NerdTree aufmachen
 nmap <leader>n :NERDTree<CR>
@@ -195,18 +195,18 @@ let g:miniBufExplCheckDupeBufs = 0
 " Binärdateien brauchen nicht geladen werden
 set wildignore+=*.xlsx,*.ico,*.png,*.jpg,*.gif,*.jpeg,*.xcf,*.xls,*.orig,*.swp,*.bak,*.pyc,
 set wildignore+=*.class,*.obj,*.o,*.un~,*~
-set wildignore+=/home/dominik/dmdoc/DmDoc/packages/**
-set wildignore+=/home/dominik/dmdoc/DmDoc/public/ext-3.2.0/**
-set wildignore+=/home/dominik/dmdoc/DmDoc/public/ext-3.4.0/**
-set wildignore+=/home/dominik/dmdoc/DmDoc/public/ext-3.3.1/**
-set wildignore+=/home/dominik/dmdoc/DmDoc/public/ext-4.0.0/**
-set wildignore+=/home/dominik/dmdoc/DmDoc/public/tinymce-3.4.9/**
-set wildignore+=/home/dominik/dmdoc/DmDoc/public/codemirror-2.0.1/**
-set wildignore+=/home/dominik/dmdoc/DmDoc/public/codemirror-2.11/**
-set wildignore+=/home/dominik/dmdoc/DmDoc/public/javascripts/jquery/**
-set wildignore+=/home/dominik/dmdoc/DmDoc/public/javascripts/jquery.preferences/**
-set wildignore+=/home/dominik/projekte/casmi/casmi
-set wildignore+=/home/dominik/projekte/casmi/build/**
+set wildignore+=$HOME/dmdoc/DmDoc/packages/**
+set wildignore+=$HOME/dmdoc/DmDoc/public/ext-3.2.0/**
+set wildignore+=$HOME/dmdoc/DmDoc/public/ext-3.4.0/**
+set wildignore+=$HOME/dmdoc/DmDoc/public/ext-3.3.1/**
+set wildignore+=$HOME/dmdoc/DmDoc/public/ext-4.0.0/**
+set wildignore+=$HOME/dmdoc/DmDoc/public/tinymce-3.4.9/**
+set wildignore+=$HOME/dmdoc/DmDoc/public/codemirror-2.0.1/**
+set wildignore+=$HOME/dmdoc/DmDoc/public/codemirror-2.11/**
+set wildignore+=$HOME/dmdoc/DmDoc/public/javascripts/jquery/**
+set wildignore+=$HOME/dmdoc/DmDoc/public/javascripts/jquery.preferences/**
+set wildignore+=$HOME/projekte/casmi/casmi
+set wildignore+=$HOME/projekte/casmi/build/**
 
 " Buffer wechseln auch wenn Datei bearbeitet wurde
 set hidden
