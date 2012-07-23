@@ -279,6 +279,9 @@ endfunc
 " delete it on every save for every file
 autocmd BufWrite * :call DeleteTrailingWS()
 
+" Remap VIM 0 to first non-blank character
+map 0 ^
+
 " Preferences from mswin.vim
 " Ctrl+C/V/X sollten nun funktionieren
 " source $VIMRUNTIME/mswin.vim
