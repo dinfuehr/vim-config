@@ -24,7 +24,13 @@ endif
 
 set ruler " Aktuelle Zeile und Spalte des Cursors rechts unten anzeigen
 set ttyfast " Schnelleres Terminaldarstellung
-set guifont=DejaVu\ Sans\ Mono\ 11
+
+if has( "mac" ) || has( "macunix" )
+  set guifont=Menlo\ Regular:h12
+else
+  set guifont=DejaVu\ Sans\ Mono\ 11
+endif
+
 "set guifont=Monaco\ 11
 set history=1000 " Mehr Commands zwischenspeichern
 set scrolloff=3 " Anzahl Zeilen die nach oben/unten immer angezeigt werden
