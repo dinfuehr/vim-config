@@ -115,6 +115,9 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "snipmate-snippets"
 Bundle "garbas/vim-snipmate"
 
+" highlight trailing whitespaces
+Bundle "bronson/vim-trailing-whitespace"
+
 " casm syntax highlighting
 Bundle "dinfuehr/vim-syntax-casm"
 
