@@ -31,11 +31,10 @@ else
   set guifont=DejaVu\ Sans\ Mono\ 11
 endif
 
-"set guifont=Monaco\ 11
 set history=1000 " Mehr Commands zwischenspeichern
 set scrolloff=3 " Anzahl Zeilen die nach oben/unten immer angezeigt werden
 " Wenn Cursor Screen verlässt, würde dies springen veranlassen
-" set scrolljump=5 
+" set scrolljump=5
 
 " Damit undo auch nach schließen und öffnen eines files möglich ist
 set undofile
@@ -135,7 +134,7 @@ set t_vb=
 
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
-vnoremap > >gv 
+vnoremap > >gv
 
 set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
@@ -143,7 +142,7 @@ set mouse=a  " Mouse in all modes
 " Better complete options to speed it up
 set complete=.,w,b,u,U
 
-" 
+"
 "noremap <tab> :bn<CR>
 
 " Unsichtbare Zeichen prinzipiell darstellen
@@ -184,8 +183,8 @@ colorscheme solarized
 hi MBEVisibleActive guibg=fg guifg=#A6DB29 ctermfg=154 ctermbg=235
 hi MBEVisibleChangedActive guifg=#F1266F guibg=fg ctermbg=235 ctermfg=161
 hi MBEVisibleChanged guifg=#F1266F ctermfg=166
-hi MBEVisibleNormal guifg=#A6DB29 guibg=fg ctermbg=235 ctermfg=154 
-hi MBEChanged guifg=#CD5907 
+hi MBEVisibleNormal guifg=#A6DB29 guibg=fg ctermbg=235 ctermfg=154
+hi MBEChanged guifg=#CD5907
 hi MBENormal guifg=#808080 ctermfg=240
 
 let g:indent_guides_auto_colors = 0
@@ -269,6 +268,16 @@ nnoremap k gk
 
 " Mit F9 kann man nun Ruby-Files Syntaxüberprüfen lassen
 autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
+
+" Delete trailing whitespaces
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+
+" delete it on every save for every file
+autocmd BufWrite * :call DeleteTrailingWS()
 
 " Preferences from mswin.vim
 " Ctrl+C/V/X sollten nun funktionieren
