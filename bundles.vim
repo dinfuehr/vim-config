@@ -1,5 +1,5 @@
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " Navigation
@@ -121,7 +121,10 @@ Bundle "bronson/vim-trailing-whitespace"
 " casm syntax highlighting
 Bundle "dinfuehr/vim-syntax-casm"
 
-filetype plugin indent on " required! 
+" Rust syntax highlighting
+Bundle 'wting/rust.vim'
+
+filetype plugin indent on " required!
 
 "
 " Brief help
