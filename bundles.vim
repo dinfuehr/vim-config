@@ -124,6 +124,9 @@ Bundle "dinfuehr/vim-syntax-casm"
 " Rust syntax highlighting
 Bundle 'wting/rust.vim'
 
+" Toml syntax highlighting"
+Bundle 'cespare/vim-toml'
+
 filetype plugin indent on " required!
 
 "
