@@ -127,6 +127,9 @@ Bundle 'wting/rust.vim'
 " Toml syntax highlighting"
 Bundle 'cespare/vim-toml'
 
+" Gradle syntax highlighting
+Bundle 'tfnico/vim-gradle'
+
 filetype plugin indent on " required!
 
 "
