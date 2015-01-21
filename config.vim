@@ -26,7 +26,7 @@ set ruler " Aktuelle Zeile und Spalte des Cursors rechts unten anzeigen
 set ttyfast " Schnelleres Terminaldarstellung
 
 if has( "mac" ) || has( "macunix" )
-  set guifont=Menlo\ Regular:h12
+  set guifont=Menlo\ Regular:h14
 else
   set guifont=DejaVu\ Sans\ Mono\ 11
 endif
@@ -85,18 +85,6 @@ map <leader>cd :cd %:p:h<cr>
 
 " Zeilennummern an- und ausschalten
 nmap <leader>cn :set number!<CR>
-
-" Ins DmDoc-Verzeichnis springen
-nmap <leader>dd :cd $HOME/dmdoc/DmDoc<CR>
-
-" Ins Uni-Projekt springen
-nmap <leader>du :cd $HOME/projekte/casmi<CR>
-
-" Ins repo-Verzeichnis springen
-nmap <leader>dr :cd $HOME/repo<CR>
-
-" Ins gaia-Verzeichnis springen
-nmap <leader>dg :cd $HOME/projekte/gaia<CR>
 
 " NerdTree aufmachen
 nmap <leader>n :NERDTree<CR>
@@ -200,18 +188,6 @@ let g:miniBufExplCheckDupeBufs = 0
 " Binärdateien brauchen nicht geladen werden
 set wildignore+=*.xlsx,*.ico,*.png,*.jpg,*.gif,*.jpeg,*.xcf,*.xls,*.orig,*.swp,*.bak,*.pyc,
 set wildignore+=*.class,*.obj,*.o,*.un~,*~
-set wildignore+=$HOME/dmdoc/DmDoc/packages/**
-set wildignore+=$HOME/dmdoc/DmDoc/public/ext-3.2.0/**
-set wildignore+=$HOME/dmdoc/DmDoc/public/ext-3.4.0/**
-set wildignore+=$HOME/dmdoc/DmDoc/public/ext-3.3.1/**
-set wildignore+=$HOME/dmdoc/DmDoc/public/ext-4.0.0/**
-set wildignore+=$HOME/dmdoc/DmDoc/public/tinymce-3.4.9/**
-set wildignore+=$HOME/dmdoc/DmDoc/public/codemirror-2.0.1/**
-set wildignore+=$HOME/dmdoc/DmDoc/public/codemirror-2.11/**
-set wildignore+=$HOME/dmdoc/DmDoc/public/javascripts/jquery/**
-set wildignore+=$HOME/dmdoc/DmDoc/public/javascripts/jquery.preferences/**
-set wildignore+=$HOME/projekte/casmi/casmi
-set wildignore+=$HOME/projekte/casmi/build/**
 
 " Buffer wechseln auch wenn Datei bearbeitet wurde
 set hidden

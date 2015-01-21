@@ -130,6 +130,9 @@ Bundle 'cespare/vim-toml'
 " Gradle syntax highlighting
 Bundle 'tfnico/vim-gradle'
 
+" Go syntax highlighting
+Bundle 'fatih/vim-go'
+
 filetype plugin indent on " required!
 
 "
