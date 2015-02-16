@@ -122,7 +122,7 @@ Bundle "bronson/vim-trailing-whitespace"
 Bundle "dinfuehr/vim-syntax-casm"
 
 " Rust syntax highlighting
-Bundle 'wting/rust.vim'
+Bundle 'rust-lang/rust.vim'
 
 " Toml syntax highlighting"
 Bundle 'cespare/vim-toml'
