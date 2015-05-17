@@ -12,6 +12,9 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+" auto save
+:au FocusLost * silent! wa
+
 set encoding=utf-8 " UTF-8 verwenden
 set fileencodings=utf-8
 
@@ -39,9 +42,6 @@ set scrolloff=3 " Anzahl Zeilen die nach oben/unten immer angezeigt werden
 " Damit undo auch nach schließen und öffnen eines files möglich ist
 set undofile
 
-" Beim Verlieren des Fokus Datei automatisch abspeichern
-" au FocusLost * :wa
-
 " Swap- und Backup-Files nicht im aktuellen Verzeichnis, sondern
 " in tmp-Verzeichnis erstellen. Dann gibts keine Probleme mit git.
 set backupdir=~/tmp,.
@@ -64,6 +64,9 @@ map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 map <C-L> <C-W>l<C-W>_
 map <C-H> <C-W>h<C-W>_
+
+" vertical buffer
+nnoremap <leader>w <C-w>v<C-w>l
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>cl :set list!<CR>
