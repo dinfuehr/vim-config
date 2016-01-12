@@ -1,12 +1,13 @@
-" Syntax-Highlighting einschalten
+" syntax highlighting
 syntax on
-" Zeilennummern anzeigen
+
+" line numbers
 set number
 
-" Backspace-Taste normal verwenden können
+" change backspace behavior
 set backspace=2
 
-" Tabulator-Einstellungen
+" tab settings
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -15,18 +16,22 @@ set expandtab
 " auto save
 :au FocusLost * silent! wa
 
-set encoding=utf-8 " UTF-8 verwenden
+set encoding=utf-8
 set fileencodings=utf-8
 
-set autoindent " Automatisch einrücken
-set laststatus=2 " Statusbar immer anzeigen
+set autoindent
+set laststatus=2
 
 if has("gui_running")
-  set cursorline " Aktuelle Zeile hervorheben
+  " highlight current line
+  set cursorline
 endif
 
-set ruler " Aktuelle Zeile und Spalte des Cursors rechts unten anzeigen
-set ttyfast " Schnelleres Terminaldarstellung
+" show curret row and column
+set ruler
+
+" faster terminal emulation
+set ttyfast
 
 if has( "mac" ) || has( "macunix" )
   set guifont=Menlo\ Regular:h14
@@ -34,32 +39,22 @@ else
   set guifont=DejaVu\ Sans\ Mono\ 11
 endif
 
-set history=1000 " Mehr Commands zwischenspeichern
-set scrolloff=3 " Anzahl Zeilen die nach oben/unten immer angezeigt werden
-" Wenn Cursor Screen verlässt, würde dies springen veranlassen
-" set scrolljump=5
+" save more commands in history
+set history=1000
 
-" Damit undo auch nach schließen und öffnen eines files möglich ist
+" offset to top/bottom when scrolling
+set scrolloff=3
+
+" allow undo even after file was closed
 set undofile
 
-" Swap- und Backup-Files nicht im aktuellen Verzeichnis, sondern
-" in tmp-Verzeichnis erstellen. Dann gibts keine Probleme mit git.
+" save swap and backup files not in current directory
 set backupdir=~/tmp,.
 set directory=~/tmp,.
 
-" Leader-Key umsetzen
 let mapleader = ","
 
-" § for Window switching
-"noremap § <C-W>
-
-" Stupid shift key fixes
-" cmap W w
-" cmap WQ wq
-" cmap wQ wq
-" cmap Q q
-
-" Easier moving in tabs and windows
+" easier moving in tabs and windows
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 map <C-L> <C-W>l<C-W>_
@@ -68,109 +63,69 @@ map <C-H> <C-W>h<C-W>_
 " vertical buffer
 nnoremap <leader>w <C-w>v<C-w>l
 
-" Shortcut to rapidly toggle `set list`
+" toggle list
 nmap <leader>cl :set list!<CR>
 
-" Kann nun mit ,dc das vimrc-File gleich laden
-nmap <leader>dc :edit ~/.vim/config.vim<CR>
-
-" Mit ,db Bundles-File laden
-nmap <leader>db :edit ~/.vim/bundles.vim<CR>
-
-" Mit ,dv das 'echte' .vimrc-File laden
-nmap <leader>dv :edit $MYVIMRC<CR>
-
-" reload vimrc-File
-nmap <leader>dl :source $MYVIMRC<CR>
-
-" When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>
-
-" Zeilennummern an- und ausschalten
+" toggle line numbers
 nmap <leader>cn :set number!<CR>
 
-" NerdTree aufmachen
-nmap <leader>n :NERDTree<CR>
-
-" ack schnell aufrufen
-nnoremap <leader>a :Ack
-
-" Den zuletzt eingefügten Bereich nochmals markieren
+" re-select pasted text
 nnoremap <leader>v V`]
 
-" Split-View aufmachen
+" open split view
 nnoremap <leader>w <C-w>v<C-w>l
 
-" Mit Space kann nun Doppelpunkt
-" eingegeben werden
+" space means :
 nmap <space> :
 
-" Tab configuration
-" map <leader>tn :tabnew<cr>
-" map <leader>te :tabedit
-" map <leader>tc :tabclose<cr>
-" map <leader>tm :tabmove
-
-" Wechseln von Tabs mittels Tab und Shift-Tab
+" switch between buffers with tab and shift-tab
 nmap <tab> :bn<CR>
 nmap <S-tab> :bp<CR>
+
+" easier closing of buffers
 nmap <leader>c :bw<CR>
 nmap <leader>bc :bw<CR>
 nmap <leader>bd :bw<CR>
 
-" bitte nicht beepen
+" no beeping
 set visualbell
 set noerrorbells
 set t_vb=
 
-" visual shifting (does not exit Visual mode)
+" visual shifting (does not exit visual mode)
 vnoremap < <gv
 vnoremap > >gv
 
 set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
 
-" Better complete options to speed it up
+" better complete options to speed it up
 set complete=.,w,b,u,U
 
-"
-"noremap <tab> :bn<CR>
-
-" Unsichtbare Zeichen prinzipiell darstellen
+" show invisible characters (tabs, eol,..)
 set list
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
-"Invisible character colors
-
-" Initiale Fenstergröße setzen
+" set initial window size
 if has( "gui_running" )
   set lines=40 columns=120
 endif
 
-" Verwende 256 Farben
+" use 256 colors
 set t_Co=256
 
-" Konsolentheme
-" colorscheme desert256
-
-" Auto-Neuladen von Files
+" auto reload of files
 set autoread
 
 let g:solarized_termcolors=256
-
-" Als GUI railscasts-Theme verwenden
-" if has("gui_running")
-" set background=dark
-"  colorscheme max-solarized
-" endif
 
 syntax enable
 set background=dark
 colorscheme solarized
 
-"Colors for MBE
+"colors for MiniBufExpl
 hi MBEVisibleActive guibg=fg guifg=#A6DB29 ctermfg=154 ctermbg=235
 hi MBEVisibleChangedActive guifg=#F1266F guibg=fg ctermbg=235 ctermfg=161
 hi MBEVisibleChanged guifg=#F1266F ctermfg=166
@@ -182,30 +137,24 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 
-" Command-T anpassen
-let g:CommandTMaxFiles=40000
-
-" Dürfte MBE beschleunigen
+" don't check for unique file names
+" made MiniBufExpl very slow over time
 let g:miniBufExplCheckDupeBufs = 0
 
-" Binärdateien brauchen nicht geladen werden
+" do not load binary files
 set wildignore+=*.xlsx,*.ico,*.png,*.jpg,*.gif,*.jpeg,*.xcf,*.xls,*.orig,*.swp,*.bak,*.pyc,
 set wildignore+=*.class,*.obj,*.o,*.un~,*~
 
-" Buffer wechseln auch wenn Datei bearbeitet wurde
+" allows switching from unsaved buffer
 set hidden
-
-"Invisible character colors
-"highlight NonText guifg=#444
-"highlight SpecialKey guifg=#444
 
 set guioptions-=m "remove menu bar
 set guioptions-=T "remove toolbar
 set guioptions-=r "remove right-hand scroll bar
 
-set wildmenu " bei vervollständigen von Files, mehrere möglich
+set wildmenu
 
-" Arrow-Keys deaktivieren
+" deactivate arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -219,36 +168,28 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" Suchen und Ersetzen verbessern
-
-" Normales Perl-Regex verwenden
+" use perl regexes for searching
 nnoremap / /\v
 vnoremap / /\v
 
-set ignorecase " ignoriert Groß/Kleinschreibung
-set smartcase " intelligente Case-Erkennung
+set ignorecase
+set smartcase
 
-" gleich beim Eingeben Highlighten
+" highlight search text
 set incsearch
 set showmatch
 set matchtime=2 " How many tenths of a second to blink
 set hlsearch
 
-" Highlighting entfernen
+" remove highlighting
 nnoremap <leader><space> :noh<cr>
 
-" mit j und k nicht in nächsthöhere
-" Zeile springen, sondern in darunterliegende
+" j jumps one line down
+" inconvenient for long lines
 nnoremap j gj
 nnoremap k gk
 
-" mit jj auch in normal mode zurück
-" inoremap jj <ESC>
-
-" Mit F9 kann man nun Ruby-Files Syntaxüberprüfen lassen
-autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
-
-" Delete trailing whitespaces
+" delete trailing whitespaces
 func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
@@ -258,97 +199,14 @@ endfunc
 " delete it on every save for every file
 autocmd BufWrite * :call DeleteTrailingWS()
 
-" Remap VIM 0 to first non-blank character
+" remap 0 to ^
 map 0 ^
 
-" Preferences from mswin.vim
-" Ctrl+C/V/X sollten nun funktionieren
-" source $VIMRUNTIME/mswin.vim
-" behave mswin
-
-" CTRL-X is Cut
-vnoremap <C-X> "+x
-
-" CTRL-C is Copy
-vnoremap <C-C> "+y
-
-" CTRL-V is Paste
-map <C-V> "+gP
-cmap <C-V> <C-R>+
-
-" Pasting blockwise and linewise selections is not possible in Insert and
-" Visual mode without the +virtualedit feature.  They are pasted as if they
-" were characterwise instead.
-" Uses the paste.vim autoload script.
-
-exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
-exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
-
-" Use CTRL-Q to do what CTRL-V used to do
-noremap <C-Q> <C-V>
-
-" ----------------------------------------
-" Plugin Configuration
-" ----------------------------------------
-
-" ---------------
-" Session
-" ---------------
-let g:session_autosave=0
-let g:session_autoload=0
-nnoremap <leader>os :OpenSession<CR>
-
-" ---------------
-" SpeedDating
-" ---------------
-let g:speeddating_no_mappings=1 " Remove default mappings (C-a etc.)
-nmap <silent><leader>dm <Plug>SpeedDatingDown
-nmap <silent><leader>dp <Plug>SpeedDatingUp
-nmap <silent><leader>dn <Plug>SpeedDatingNowUTC
-
-" ---------------
-" Tabular
-" ---------------
-nmap <Leader>t= :Tabularize /=<CR>
-vmap <Leader>t= :Tabularize /=<CR>
-nmap <Leader>t: :Tabularize /:\zs<CR>
-vmap <Leader>t: :Tabularize /:\zs<CR>
-nmap <Leader>t, :Tabularize /,\zs<CR>
-vmap <Leader>t, :Tabularize /,\zs<CR>
-nmap <Leader>t> :Tabularize /=>\zs<CR>
-vmap <Leader>t> :Tabularize /=>\zs<CR>
-nmap <Leader>t- :Tabularize /-<CR>
-vmap <Leader>t- :Tabularize /-<CR>
-nmap <Leader>t" :Tabularize /"<CR>
-vmap <Leader>t" :Tabularize /"<CR>
-
-" ---------------
-" Fugitive
-" ---------------
-nmap <Leader>gc :Gcommit<CR>
-nmap <Leader>gw :Gwrite<CR>
-nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gp :Git push<CR>
- " Mnemonic, gu = Git Update
-nmap <Leader>gu :Git pull<CR>
-nmap <Leader>gd :Gdiff<CR>
-" Exit a diff by closing the diff window
-nmap <Leader>gx :wincmd h<CR>:q<CR>
-
-" ---------------
-" Ack.vim
-" ---------------
-nmap <silent> <leader>as :AckFromSearch<CR>
-
-" ---------------
-" Vundle
-" ---------------
+" vundle
 nmap <Leader>bi :BundleInstall<CR>
-nmap <Leader>bu :BundleInstall!<CR> " Because this also updates
+nmap <Leader>bu :BundleInstall!<CR>
 nmap <Leader>bc :BundleClean<CR>
 
-" ---------------
-" Ctrl-P
-" ---------------
+" ctrl-p
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_working_path_mode = 2
