@@ -145,7 +145,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 let g:miniBufExplCheckDupeBufs = 0
 
 " do not load binary files
-set wildignore+=*.xlsx,*.ico,*.png,*.jpg,*.gif,*.jpeg,*.xcf,*.xls,*.orig,*.swp,*.bak,*.pyc,
+set wildignore+=*.xlsx,*.ico,*.png,*.jpg,*.gif,*.jpeg,*.xcf,*.xls,*.orig,*.swp,*.bak,*.pyc
 set wildignore+=*.class,*.obj,*.o,*.un~,*~
 
 " allows switching from unsaved buffer
