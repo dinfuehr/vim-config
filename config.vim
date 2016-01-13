@@ -13,6 +13,9 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+" tags file path
+set tags=tags;/
+
 " auto save
 :au FocusLost * silent! wa
 
