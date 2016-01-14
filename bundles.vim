@@ -3,7 +3,7 @@
 Bundle 'gmarik/vundle'
 
 " Navigation
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'fholgado/minibufexpl.vim.git'
 
 " Visual
