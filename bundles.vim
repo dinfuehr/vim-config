@@ -40,7 +40,7 @@ Bundle 'hallison/vim-markdown'
 
 " CSS-Improvements
 Bundle 'hail2u/vim-css3-syntax'
-Bundle 'skammer/vim-css-color'
+"Bundle 'ap/vim-css-color'
 
 " LESS-Syntax-Highlighting
 Bundle 'groenewege/vim-less'
