@@ -8,7 +8,7 @@ set number
 set backspace=2
 
 " tab settings
-set tabstop=2
+set tabstop=8
 set shiftwidth=2
 set softtabstop=2
 set expandtab
