@@ -1,8 +1,9 @@
 " syntax highlighting
 syntax on
 
-" line numbers
+" use relative line numbers
 set number
+set relativenumber
 
 " change backspace behavior
 set backspace=2
@@ -175,8 +176,9 @@ nnoremap <leader><space> :noh<cr>
 
 " j jumps one line down
 " inconvenient for long lines
-nnoremap j gj
-nnoremap k gk
+" use 'normal' j with count but gj without count
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " delete trailing whitespaces
 func! DeleteTrailingWS()
