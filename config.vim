@@ -15,7 +15,7 @@ set softtabstop=2
 set expandtab
 
 " tags file path
-set tags=tags;/
+set tags=tags;/,TAGS;/,.tags;/
 
 " auto save
 :au FocusLost * silent! wa
