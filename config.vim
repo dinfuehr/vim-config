@@ -17,6 +17,10 @@ set expandtab
 " tags file path
 set tags=tags;/,TAGS;/,.tags;/
 
+" reformat code with clang-format
+map <C-I> :pyf ~/.vim/clang-format.py<cr>
+imap <C-I> <c-o>:pyf ~/.vim/clang-format.py<cr>
+
 " auto save
 :au FocusLost * silent! wa
 
