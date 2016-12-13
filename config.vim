@@ -18,8 +18,8 @@ set expandtab
 set tags=tags;/,TAGS;/,.tags;/
 
 " reformat code with clang-format
-" map <C-I> :pyf ~/.vim/clang-format.py<cr>
-" imap <C-I> <c-o>:pyf ~/.vim/clang-format.py<cr>
+map <C-K> :pyf ~/.vim/clang-format.py<cr>
+imap <C-K> <c-o>:pyf ~/.vim/clang-format.py<cr>
 
 " auto save
 :au FocusLost * silent! wa
@@ -61,12 +61,6 @@ set backupdir=~/tmp,.
 set directory=~/tmp,.
 
 let mapleader = ","
-
-" easier moving in tabs and windows
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-map <C-L> <C-W>l<C-W>_
-map <C-H> <C-W>h<C-W>_
 
 " vertical buffer
 nnoremap <leader>w <C-w>v<C-w>l
