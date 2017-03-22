@@ -185,8 +185,9 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 
-" delete it on every save for every file
-autocmd BufWrite * :call DeleteTrailingWS()
+" disable for now: delete trailing whitespace on every save for every file
+" not really useful in all situations: invoke manually
+" autocmd BufWrite * :call DeleteTrailingWS()
 
 " remap 0 to ^
 map 0 ^
