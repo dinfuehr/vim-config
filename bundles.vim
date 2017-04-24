@@ -2,6 +2,9 @@
 " required!
 Bundle 'gmarik/vundle'
 
+" allow copy/paste with tmux
+Bundle 'kana/vim-fakeclip'
+
 " Navigation
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'fholgado/minibufexpl.vim.git'
